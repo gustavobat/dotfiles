@@ -1,0 +1,232 @@
+; ==============================================================================
+;
+; ~/.config/polybar/config - Polybar config file
+;
+; ==============================================================================
+
+[bar/top]
+dpi = 282
+monitor = eDP-1
+width = 100%
+height = 60
+background = #00000000
+foreground = #ccffffff
+override-redirect = true
+line-color = ${bar/bottom.background}
+line-size = 5
+
+separator = |
+spacing = 1
+padding-right = 4
+module-margin = 2
+
+font-0 = NotoSans-Regular:size=10;5
+font-1 = FontAwesome5Free:style=Solid:size=9;7
+font-2 = FontAwesome5Brands:style=Solid:size=9;7
+font-3 = MaterialIcons:style=Solid:size=10;7
+
+enable-ipc = true
+modules-left = powermenu 
+modules-center = mp
+modules-right = volume wifi wireless-network wired-network battery date
+
+[bar/bottom]
+dpi = 282
+monitor = eDP-1
+override-redirect = true
+bottom = true
+width = 100%
+height = 60
+
+background = #00000000
+foreground = ${bar/top.foreground}
+line-color = ${bar/top.background}
+line-size = 16
+
+font-0 = NotoSans-Regular:size=9
+
+modules-center = i3
+
+[module/backlight]
+type = internal/xbacklight
+format = <ramp> <bar>
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+
+bar-width = 30
+bar-indicator = |
+bar-indicator-font = 3
+bar-indicator-foreground = #ff
+bar-fill = ─
+bar-fill-font = 3
+bar-fill-foreground = #c9665e
+bar-empty = ─
+bar-empty-font = 3
+bar-empty-foreground = #44
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+
+ramp-capacity-0 =  
+ramp-capacity-0-foreground = #f53c3c
+ramp-capacity-1 = 
+ramp-capacity-1-foreground = #ffa900
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+[module/i3]
+type = internal/i3
+; Only show workspaces defined on the same monitor as the bar.
+pin-workspaces = true
+index-sort = true
+
+enable-click = true
+enable-scroll = false
+wrapping-scroll = true
+; Set the scroll cycle direction 
+reverse-scroll = false
+
+; ws-icon-[0-9]+ = label;icon
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+
+format = <label-state> <label-mode>
+
+fuzzy-match = true
+
+; Available tokens:
+label-mode = %mode%
+label-mode-padding = 0
+label-mode-background = #e60053
+
+label-focused = " "
+label-focused-foreground = #00000000
+label-focused-background = #00000000
+label-focused-underline = #BD2C40
+label-focused-padding = 8
+
+label-unfocused = " "
+label-unfocused-foreground = #00000000
+label-unfocused-background = #00000000
+label-unfocused-underline = #222222
+label-unfocused-padding = 8
+
+label-visible = " "
+label-visible-underline = #555555
+label-visible-padding = 8
+
+label-urgent = " "
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 8
+
+label-separator = " "
+label-separator-padding = 1
+label-separator-foreground = #00000000
+
+[module/date]
+type = internal/date
+date = %%{F#CCCCCC}   %%{F#CCCCCC}%d/%m%%{F-}    %%{F#CCCCCC}%H:%M%%{F-}
+date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+
+[module/mpd]
+type = internal/mpd
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+
+icon-play =  
+icon-pause =  
+icon-stop =  
+icon-prev = 
+icon-next = 
+icon-random = 
+icon-repeat = 
+
+toggle-on-foreground =
+toggle-off-foreground = #55
+
+bar-progress-width = 45
+bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
+bar-progress-indicator = |
+bar-progress-indicator-foreground = #ff
+bar-progress-indicator-font = 3
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-font = 3
+bar-progress-empty-foreground = #44
+
+[module/wireless-network]
+type = internal/network
+interface = wlp7s0
+interval = 5.0
+ping-interval = 10
+
+format-connected = <ramp-signal> <label-connected>
+label-connected =  %downspeed%    %upspeed%
+label-disconnected = 
+label-disconnected-foreground = #66
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+
+animation-packetloss-0 = 
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = ${bar/top.foreground}
+animation-packetloss-framerate = 500
+
+[module/wired-network]
+type = internal/network
+interface = net0
+interval = 3.0
+
+label-connected =    %{T3}%local_ip%%{T-}
+label-disconnected-foreground = #66
+
+[module/volume]
+type = internal/volume
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+headphone-id = 9
+
+format-volume = <ramp-volume> <label-volume>
+label-muted = 
+label-muted-foreground = #66
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+
+[module/wifi]
+type = custom/ipc
+hook-0 = ~/.scripts/i3wifi
+hook-1 = date +%s
+initial = 1
+click-left = polybar-msg -p %pid% hook wifi 1
+click-right = polybar-msg -p %pid% hook wifi 2
