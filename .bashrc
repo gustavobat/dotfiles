@@ -143,4 +143,5 @@ export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1
 
 PATH="$HOME/.scripts:$PATH"
 export PATH
-alias dotfiles='/usr/bin/git --git-dir=/home/gustavobat/.dotfiles/ --work-tree=/home/gustavobat'
+
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
