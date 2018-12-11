@@ -5,6 +5,7 @@ A man's home is his castle
 
 - i3-gaps
 - polybar
-- bash
+- zsh
 - spacemacs
 - etc...
+
