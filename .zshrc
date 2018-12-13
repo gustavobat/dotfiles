@@ -1,10 +1,11 @@
 # ==============================================================================
 #
-# ~/.bashrc
+# ~/.zshrc
 #
 # ==============================================================================
 
 # Variable settings ============================================================
+
 PATH="$HOME/bin:/usr/local/bin:$PATH"
 PATH="$HOME/.scripts:$PATH"
 
@@ -16,10 +17,11 @@ export ZSH="/home/gus/.oh-my-zsh"
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='emacs'
+  export EDITOR='emacs -nw'
 fi
 
 # Oh My Zsh settings ===========================================================
+
 ZSH_THEME="mingus"
 
 # Enables Oh My Zsh plugins
@@ -30,8 +32,15 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Aliases ======================================================================
-alias zshconfig="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+alias zshconfig="$EDITOR ~/.zshrc"
+alias ohmyzshconfig="$EDITOR ~/.oh-my-zsh"
+alias i3config="$EDITOR ~/.config/i3/config"
+alias polybarconfig="$EDITOR ~/.config/polybar/config"
+
+alias :q="exit"
+alias cd..="cd .."
+
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # ==============================================================================
