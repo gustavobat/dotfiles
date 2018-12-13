@@ -59,7 +59,7 @@ bindsym $mod+b exec firefox    # Browser
 # Applications to be initalized at start-up ====================================
 
 exec_always --no-startup-id ~/.config/polybar/launcher.sh
-exec --no-startup-id feh --bg-scale ~/.config/wallpaper.jpg
+exec --no-startup-id feh --bg-scale ~/.config/wallpaper.*
 
 # General i3 controls ==========================================================
 
