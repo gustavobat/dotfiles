@@ -8,10 +8,10 @@
 
 font pango:Roboto Mono 9
 gaps inner 15
-gaps outer 15
+gaps outer 0
 
 # Hides title bar
-new_window pixel 1
+new_window pixel 2
 
 floating_minimum_size 75 x 50
 floating_maximum_size 1800 x 1200
@@ -45,21 +45,26 @@ set_from_resource $color14    color14
 set_from_resource $color7     color7 
 set_from_resource $color15    color15
 
-# Class                 border  background  text    indicator   child_border
-client.focused          $color5 $background $foreground $foreground $color5
-client.focused_inactive $color5 $background $foreground $foreground $color5
-client.unfocused        $color5 $background $foreground $foreground $color5
-client.urgent $darkred  $color5 $background $foreground $foreground $color5
+# Class                 border      background  text        indicator   child_border
+client.focused          $color0     $background $foreground $color0     $color0
+client.focused_inactive $background $background $foreground $background $background
+client.unfocused        $background $background $foreground $background $background
+client.urgent           $background $background $foreground $background $background
 
 # Application launching ========================================================
 
-bindsym $mod+Return exec urxvt # Terminal emulator
-bindsym $mod+b exec firefox    # Browser
+bindsym $mod+Return exec urxvt
+bindsym $mod+b exec firefox
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+m exec spotify --force-device-scale=2.3
+bindsym $mod+c exec clion
 
 # Applications to be initalized at start-up ====================================
 
 exec_always --no-startup-id ~/.config/polybar/launcher.sh
+exec_always --no-startup-id ~/.scripts/polybar-launch-listener
 exec --no-startup-id feh --bg-scale ~/.config/wallpaper.*
+exec --no-startup-id compton -b
 
 # General i3 controls ==========================================================
 

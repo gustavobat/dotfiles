@@ -19,44 +19,54 @@ Xcursor.size:   48
 ! Color scheme =================================================================
 
 ! Special
-*.foreground:   #D2C5BC
-*.background:   #101010
-*.cursorColor:  #D2C5BC
+*.foreground:   #ddd2bc
+*.background:   #222222
+*.cursorColor:  #ddd2bc
+
 ! Black
-*.color0:       #202020
-*.color8:       #606060
+*.color0:       #554444
+*.color8:       #554444
+
 ! Red
-*.color1:       #B91E2E
-*.color9:       #D14548
+*.color1:       #bd5049
+*.color9:       #bd5049
+
 ! Green
-*.color2:       #6F9565
-*.color10:      #9BB784
+*.color2:       #808d49
+*.color10:      #808d49
+
 ! Yellow
-*.color3:       #E7AD76
-*.color11:      #FAE3A0
+*.color3:       #b98d50
+*.color11:      #b98d50
+
 ! Blue
-*.color4:       #356579
-*.color12:      #7491A1
+*.color4:       #506d79
+*.color12:      #506d79
+
 ! Magenta
-*.color5:       #2D2031
-*.color13:      #87314E
+*.color5:       #79596d
+*.color13:      #79506d
+
 ! Cyan
-*.color6:       #2B4072
-*.color14:      #0F829D
+*.color6:       #6d6970
+*.color14:      #6d6970
+
 ! White
-*.color7:       #909090
-*.color15:      #C3B7B7
+*.color7:       #d9cda0
+*.color15:      #d9cda0
 
 ! URxvt settings ===============================================================
 
-URxvt.font:                       xft:source code pro:size=9
+URxvt.font:                       xft:hack:size=9
 URxvt.depth:                      32
 URxvt*scrollBar:                  false
 URxvt*cursorBlink:                true
 URxvt*saveLines:                  100
+
 ! Normal copy-paste keybindings
 URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
 URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
+
 ! Set some word by word movement
 URxvt.keysym.Control-Left:        \033[1;5D
 URxvt.keysym.Control-Right:       \033[1;5C

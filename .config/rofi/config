@@ -1,0 +1,5 @@
+
+rofi.dpi:	    282
+rofi.combi-modi:    window,drun,ssh
+rofi.font:          hack 10
+rofi.modi:          combi

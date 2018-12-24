@@ -6,11 +6,10 @@
 
 # Variable settings ============================================================
 
-PATH="$HOME/bin:/usr/local/bin:$PATH"
+PATH="$HOME/bin:/usr/local/bin:/usr/share:$PATH"
 PATH="$HOME/.scripts:$PATH"
 
 export PATH
-export LANG=en_US.UTF-8
 export ZSH="/home/gus/.oh-my-zsh"
 
 # Preferred editor for local and remote sessions
