@@ -56,7 +56,7 @@ client.urgent           $background $background $foreground $background $backgro
 bindsym $mod+Return exec urxvt
 bindsym $mod+b exec firefox
 bindsym $mod+d exec rofi -show drun
-bindsym $mod+m exec spotify --force-device-scale=2.3
+bindsym $mod+m exec spotify --force-device-scale-factor=2.3
 bindsym $mod+c exec clion
 
 # Applications to be initalized at start-up ====================================
