@@ -19,9 +19,9 @@ Xcursor.size:   48
 ! Color scheme =================================================================
 
 ! Special
-*.foreground:   #ddd2bc
+*.foreground:   #d2d2d2
 *.background:   #222222
-*.cursorColor:  #ddd2bc
+*.cursorColor:  #d2d2d2
 
 ! Black
 *.color0:       #554444
