@@ -51,7 +51,7 @@ modules-center = i3
 type = custom/menu
 
 label-open = ""
-label-close = "Shut down/restart:"
+label-close = "Shut down Elisa/restart Elisa:"
 label-separator = " "
 
 ; shutdown
@@ -89,10 +89,9 @@ initial = 3
 click-left = "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 
 [module/spotify]
-type = custom/ipc
-hook-0 = echo ""
-hook-1 = python3 ~/.scripts/polybar-spotify-status.py -f '{artist} - {song}'
-initial = 1
+type = custom/script
+interval = 0.1
+exec = python3 ~/.scripts/polybar-spotify-status.py -f '{artist} - {song}'
 
 [module/mpd]
 type = internal/mpd
