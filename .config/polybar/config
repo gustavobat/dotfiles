@@ -50,7 +50,7 @@ modules-center = i3
 [module/powermenu]
 type = custom/menu
 
-label-open = ""
+label-open = ""
 label-close = "Shut down Elisa/restart Elisa:"
 label-separator = " "
 

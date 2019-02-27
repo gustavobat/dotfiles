@@ -42,4 +42,7 @@ alias cd..="cd .."
 
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
+alias wfhome="netctl stop-all && netctl start Peppa"
+alias wflab="netctl stop-all && netctl start Orlandini"
+
 # ==============================================================================
