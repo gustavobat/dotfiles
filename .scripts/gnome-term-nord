@@ -1,0 +1,7 @@
+#!/bin/bash
+git clone https://github.com/arcticicestudio/nord-gnome-terminal.git
+cd nord-gnome-terminal/src
+./nord.sh
+cd ../..
+rm -rf nord-gnome-terminal
+
