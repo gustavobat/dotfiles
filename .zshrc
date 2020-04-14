@@ -1,48 +1,31 @@
-# ==============================================================================
 #
-# ~/.zshrc
+# .zshrc
+# Gustavo Batistela, 14/03/2019
 #
-# ==============================================================================
 
-# Variable settings ============================================================
-
-PATH="$HOME/bin:/usr/local/bin:/usr/share:$PATH"
-PATH="$HOME/.scripts:$PATH"
-
-export PATH
+# Oh My Zsh stuff
 export ZSH="/home/gus/.oh-my-zsh"
+ZSH_THEME="gallois"
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='emacs -nw'
-fi
+HYPHEN_INSENSITIVE="true"
 
-# Oh My Zsh settings ===========================================================
-
-ZSH_THEME="mingus"
-
-# Enables Oh My Zsh plugins
-plugins=(
-  git
-)
+plugins=(git copyfile copydir)
 
 source $ZSH/oh-my-zsh.sh
 
-# Aliases ======================================================================
+# User configuration
+export EDITOR='nvim'
 
-alias zshconfig="$EDITOR ~/.zshrc"
-alias ohmyzshconfig="$EDITOR ~/.oh-my-zsh"
-alias i3config="$EDITOR ~/.config/i3/config"
-alias polybarconfig="$EDITOR ~/.config/polybar/config"
+PATH="$HOME/.scripts:$PATH"
+export PATH
 
-alias :q="exit"
+# Example aliases
+alias zshconfig="nvim ~/.zshrc"
+
 alias cd..="cd .."
+alias :q="exit"
+
+alias please='sudo $(fc -ln -1)'
 
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
-alias wfhome="netctl stop-all && netctl start Peppa"
-alias wflab="netctl stop-all && netctl start Orlandini"
-
-# ==============================================================================
