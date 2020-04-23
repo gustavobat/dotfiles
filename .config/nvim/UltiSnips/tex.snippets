@@ -9,9 +9,9 @@ endsnippet
 snippet ;m "Inline Math" wA
 $${1}$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
-	snip.rv = ' '
+  snip.rv = ' '
 else:
-	snip.rv = ''
+  snip.rv = ''
 `$2
 endsnippet
 
@@ -48,12 +48,12 @@ endsnippet
 # that returns "wolfram Integrate[Tan[x], x] wolfram". By pressing <TAB> again
 # we trigger the 2nd snippet, that calls wolframscript via Python and returns 
 # "-\log (\cos (x))".
-priority 1000
-snippet wolfram "Prepare WolframScript evaluation" w
+priority 100
+snippet wolfram "Prepare WolframScript Evaluation" w
 wolfram $1 wolfram$0
 endsnippet
 
-priority 10000
+priority 1000
 snippet 'wolfram(.*)wolfram' "Evaluate WolframScript" wr
 `!p
 import subprocess
@@ -61,5 +61,47 @@ code = 'ToString[' + match.group(1) + ', TeXForm]'
 snip.rv = subprocess.check_output(['wolframscript', '-code', code])
 `
 endsnippet
+
+snippet ;subfile "Insert New Subfile Template" bA
+%! TEX root = **/main.tex
+\\documentclass[main.tex]{subfiles}
+\\begin{document}
+
+$0
+
+\\end{document}
+endsnippet
+
+priority 100
+snippet draw "Prepare Inkscape Figure Insertion" w
+draw$1draw$0
+endsnippet
+
+priority 10000
+snippet 'draw(.*)draw' "Create Figure in Inkscape" wr
+\\begin{figure}[h]
+  \\centering
+  \\def\svgwidth{\columnwidth}
+`!p
+import subprocess
+from pathlib import Path
+
+fig_dir = os.getcwd() + '/figures'
+Path(fig_dir).mkdir(parents=True, exist_ok=True)
+
+fig_path = fig_dir + '/' + match.group(1) + '.svg'
+template_path = '../Templates/inkscape.svg'
+
+subprocess.call(['cp', template_path, fig_path])
+subprocess.call(['inkscape', fig_path])
+
+snip.rv = "  \\input{figures/" + match.group(1) + ".pdf_tex}"
+`
+  \\caption{}
+  \\label{fig:}
+\\end{figure}
+$0
+endsnippet
+
 
 # vim:ft=snippets

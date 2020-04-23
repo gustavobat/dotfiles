@@ -8,19 +8,20 @@ set encoding=utf-8
 set fileencoding=utf-8
 
 " Hybrid line numbers
-:set number relativenumber
-:set nu rnu
+set number relativenumber
+set nu rnu
 
 " File type detection
 filetype plugin indent on
 
 " Default indenting options
-:set tabstop=4
-:set shiftwidth=4
-:set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
 
 " This makes exiting insert mode easier
-:inoremap jk <esc>
+inoremap jk <esc>
 
 " Installation of plug ins
 call plug#begin()
@@ -58,6 +59,8 @@ Plug 'tpope/vim-vinegar'
 Plug 'preservim/nerdtree'
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeWinSize=20
+map <C-n> :NERDTreeToggle<CR>
 
 call plug#end()
 
