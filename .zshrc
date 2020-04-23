@@ -1,6 +1,6 @@
 #
-# .zshrc
-# Gustavo Batistela, 14/03/2019
+# ~/.zshrc
+# Gustavo Batistela, 14/03/2020
 #
 
 # Oh My Zsh stuff
@@ -17,10 +17,12 @@ source $ZSH/oh-my-zsh.sh
 export EDITOR='nvim'
 
 PATH="$HOME/.scripts:$PATH"
+PATH="$HOME/Programs/bin:$PATH"
 export PATH
 
-# Example aliases
+# User aliases
 alias zshconfig="nvim ~/.zshrc"
+alias vimconfig="nvim ~/.config/nvim/init.vim"
 
 alias cd..="cd .."
 alias :q="exit"
@@ -28,4 +30,5 @@ alias :q="exit"
 alias please='sudo $(fc -ln -1)'
 
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias clion="clion.sh"
 
