@@ -62,6 +62,9 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeWinSize=20
 map <C-n> :NERDTreeToggle<CR>
 
+" Focus mode
+Plug 'junegunn/goyo.vim'
+
 call plug#end()
 
 call deoplete#custom#var('omni', 'input_patterns', {

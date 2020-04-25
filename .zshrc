@@ -18,6 +18,7 @@ export EDITOR='nvim'
 
 PATH="$HOME/.scripts:$PATH"
 PATH="$HOME/Programs/bin:$PATH"
+PATH="$HOME/Programs/Executables:$PATH"
 export PATH
 
 # User aliases
