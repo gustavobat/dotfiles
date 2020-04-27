@@ -77,19 +77,20 @@ snippet 'draw\ (.*)\ draw' "Create Figure in Inkscape" wr
 \\centering
 \\def\svgwidth{\columnwidth}
 `!p
-import subprocess
-from pathlib import Path
-
-fig_dir = os.getcwd() + '/figures'
-Path(fig_dir).mkdir(parents=True, exist_ok=True)
-
-fig_path = fig_dir + '/' + match.group(1) + '.svg'
-template_path = '../Templates/inkscape.svg'
-
-subprocess.call(['cp', '-u', template_path, fig_path])
-subprocess.call(['inkscape', fig_path])
-
-snip.rv = "  \\input{figures/" + match.group(1) + ".pdf_tex}"
+if not snip.c:
+	import subprocess
+	from pathlib import Path
+	
+	fig_dir = os.getcwd() + '/figures'
+	Path(fig_dir).mkdir(parents=True, exist_ok=True)
+	
+	fig_path = fig_dir + '/' + match.group(1) + '.svg'
+	template_path = '../Templates/inkscape.svg'
+	
+	subprocess.call(['cp', '-u', template_path, fig_path])
+	subprocess.call(['inkscape', fig_path])
+	
+	snip.rv = "  \\input{figures/" + match.group(1) + ".pdf_tex}"
 `
 \\caption{}
 \\label{fig:}
@@ -99,14 +100,14 @@ endsnippet
 
 snippet '\\input{figures/(.*).pdf_tex}' "Edit Figure in Inkscape" wr
 `!p
-import subprocess
-from pathlib import Path
-
-fig_path = os.getcwd() + '/figures/' + match.group(1) + '.svg'
-subprocess.call(['inkscape', fig_path])
-snip.rv = "\\input{figures/" + match.group(1) + ".pdf_tex}"
+if not snip.c:
+	import subprocess
+	from pathlib import Path
+	
+	fig_path = os.getcwd() + '/figures/' + match.group(1) + '.svg'
+	subprocess.call(['inkscape', fig_path])
+	snip.rv = "\\input{figures/" + match.group(1) + ".pdf_tex}"
 `
-$0
 endsnippet
 
 # vim:ft=snippets
